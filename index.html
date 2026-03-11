@@ -41,6 +41,16 @@ transform: translateY(0);
 }
 }
 
+
+.lang-transition {
+transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.lang-hidden {
+opacity: 0;
+transform: translateY(6px);
+}
+
 </style>
 
 </head>
@@ -50,6 +60,7 @@ transform: translateY(0);
 <script>
   feather.replace()
 </script>
+
 
 <body class="bg-white text-gray-800">
 
@@ -67,26 +78,65 @@ Shokeir
 <div class="hidden md:flex space-x-8 text-sm font-medium">
 
 <a href="#services" class="hover:text-blue-600 transition">
-Services
+
+<span data-lang="en">Services</span>
+<span data-lang="de" class="hidden">Leistungen</span>
+
 </a>
 
 <a href="#example" class="hover:text-blue-600 transition">
-Linga+
+
+<span data-lang="en">Linga+</span>
+<span data-lang="de" class="hidden">Linga+</span>
+
 </a>
 
 <a href="#process" class="hover:text-blue-600 transition">
-Process
+
+<span data-lang="en">Process</span>
+<span data-lang="de" class="hidden">Ablauf</span>
+
 </a>
 
 <a href="#contact" class="hover:text-blue-600 transition">
-Contact
+
+<span data-lang="en">Contact</span>
+<span data-lang="de" class="hidden">Kontakt</span>
+
 </a>
 
 </div>
 
+<div class="flex items-center gap-4">
+
 <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
-Start Project
+<span data-lang="en">Start Project</span>
+<span data-lang="de" class="hidden">Projekt starten</span>
 </a>
+
+
+<div class="relative">
+
+<button id="langButton" class="flex items-center gap-2 border rounded-lg px-3 py-1 text-sm hover:bg-gray-50">
+
+<img id="currentFlag" src="https://flagcdn.com/w20/gb.png" class="w-5 h-4">
+<span id="currentLang">EN</span>
+
+</button>
+
+<div id="langMenu"
+class="hidden absolute right-0 mt-2 w-28 bg-white border rounded-lg shadow-md">
+
+<button id="switchLang" class="flex items-center gap-2 w-full px-3 py-2 hover:bg-gray-50">
+<img id="switchFlag" src="https://flagcdn.com/w20/de.png" class="w-5 h-4">
+<span id="switchText">DE</span>
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 </nav>
 
@@ -96,19 +146,31 @@ Start Project
 
 <!-- HERO -->
 
-<main>
+<main id="pageContent" class="lang-transition">
 
 <section class="hero max-w-7xl mx-auto px-6 py-32 text-center">
 
 <h1 class="text-4xl md:text-6xl font-bold mb-6">
 
-IT Project Management & Offshore Development Teams
+<span data-lang="en">
+IT Project Management & Development Teams
+</span>
+
+<span data-lang="de" class="hidden">
+IT-Projektmanagement & Entwicklungsteams
+</span>
 
 </h1>
 
 <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10">
 
+<span data-lang="en">
 We help companies in Europe and the US build high-quality web, mobile and cloud solutions through managed offshore development teams.
+</span>
+
+<span data-lang="de" class="hidden">
+Wir helfen Unternehmen in Europa und den USA dabei, hochwertige Web-, Mobile- und Cloud-Lösungen mit gemanagten Offshore-Entwicklungsteams zu entwickeln.
+</span>
 
 </p>
 
@@ -117,13 +179,14 @@ We help companies in Europe and the US build high-quality web, mobile and cloud 
 <a href="mailto:omar@shokeir.com"
 class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
 
-Contact Us
+<span data-lang="en">Contact Us</span>
+<span data-lang="de" class="hidden">Kontakt aufnehmen</span>
 
 </a>
 
 <a href="#services" class="border border-gray-300 px-6 py-3 rounded-lg hover:bg-gray-50 transition">
-View Services
-</a>
+<span data-lang="en">View Services</span>
+<span data-lang="de" class="hidden">Leistungen ansehen</span></a>
 
 </div>
 
@@ -138,7 +201,8 @@ View Services
 <div class="max-w-7xl mx-auto px-6">
 
 <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
-Our Services
+<span data-lang="en">Our Services</span>
+<span data-lang="de" class="hidden">Unsere Leistungen</span>
 </h2>
 
 <div class="grid md:grid-cols-3 gap-10">
@@ -152,11 +216,22 @@ Our Services
 </div>
 
 <h3 class="text-xl font-semibold mb-3">
-Web & Mobile Development
+
+<span data-lang="en">Web & Mobile Development</span>
+<span data-lang="de" class="hidden">Web- & Mobile-Entwicklung</span>
+
 </h3>
 
 <p class="text-gray-600">
+
+<span data-lang="en">
 Custom web applications and mobile apps built by experienced offshore developers using modern frameworks.
+</span>
+
+<span data-lang="de" class="hidden">
+Individuelle Webanwendungen und Mobile-Apps, entwickelt von erfahrenen Offshore-Entwicklern mit modernen Frameworks.
+</span>
+
 </p>
 
 </div>
@@ -171,11 +246,18 @@ Custom web applications and mobile apps built by experienced offshore developers
 </div>
 
 <h3 class="text-xl font-semibold mb-3">
-Cloud Architecture
+<span data-lang="en">Cloud Architecture</span>
+<span data-lang="de" class="hidden">Cloud-Architektur</span>
 </h3>
 
 <p class="text-gray-600">
+<span data-lang="en">
 Design and implementation of scalable cloud infrastructure on AWS, Azure and Google Cloud.
+</span>
+
+<span data-lang="de" class="hidden">
+Design und Implementierung skalierbarer Cloud-Infrastrukturen auf AWS, Azure und Google Cloud.
+</span>
 </p>
 
 </div>
@@ -190,11 +272,18 @@ Design and implementation of scalable cloud infrastructure on AWS, Azure and Goo
 </div>
 
 <h3 class="text-xl font-semibold mb-3">
-Dashboards & Automation
+<span data-lang="en">Dashboards & Automation</span>
+<span data-lang="de" class="hidden">Dashboards & Automatisierung</span>
 </h3>
 
 <p class="text-gray-600">
+<span data-lang="en">
 Business dashboards and automated reporting pipelines to turn your data into actionable insights.
+</span>
+
+<span data-lang="de" class="hidden">
+Business-Dashboards und automatisierte Reporting-Pipelines, die Daten in verwertbare Erkenntnisse verwandeln.
+</span>
 </p>
 
 </div>
@@ -216,15 +305,33 @@ Business dashboards and automated reporting pipelines to turn your data into act
 <div>
 
 <h2 class="text-3xl md:text-4xl font-bold mb-6">
+<span data-lang="en">
 LingaPlus: German Language Learning Mobile App
+</span>
+
+<span data-lang="de" class="hidden">
+LingaPlus: Mobile App zum Deutschlernen
+</span>
 </h2>
 
 <p class="text-gray-600 mb-6">
+<span data-lang="en">
 One of our internal projects is a German language learning platform designed to help users improve their vocabulary, listening, and reading skills through interactive exercises.
+</span>
+
+<span data-lang="de" class="hidden">
+Eines unserer internen Projekte ist eine Plattform zum Deutschlernen, die Nutzern hilft, ihren Wortschatz sowie ihre Hör- und Lesefähigkeiten durch interaktive Übungen zu verbessern.
+</span>
 </p>
 
 <p class="text-gray-600">
+<span data-lang="en">
 The platform includes gamified learning features such as progress tracking, flashcards, quizzes, and listening exercises.
+</span>
+
+<span data-lang="de" class="hidden">
+Die Plattform enthält spielerische Lernfunktionen wie Fortschrittsverfolgung, Karteikarten, Quizze und Hörübungen.
+</span>
 </p>
 
 <a 
@@ -243,7 +350,7 @@ class="h-14 hover:scale-105 transition">
 
 <!-- IMAGE -->
 
-<div class="hidden md:flex relative justify-center h-[420px] overflow-hidden items-start">
+<div class="relative flex justify-center h-[420px] overflow-hidden items-start">
 
 <img 
 src="mobile-app.png" 
@@ -269,7 +376,8 @@ class="max-w-xs md:max-w-sm drop-shadow-2xl"
 <div class="max-w-7xl mx-auto px-6">
 
 <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
-Process
+<span data-lang="en">Process</span>
+<span data-lang="de" class="hidden">Ablauf</span>
 </h2>
 
 <div class="grid md:grid-cols-4 gap-10 text-center">
@@ -283,11 +391,18 @@ Process
 </div>
 
 <h3 class="font-semibold mb-2">
-Consultation
+<span data-lang="en">Consultation</span>
+<span data-lang="de" class="hidden">Beratung</span>
 </h3>
 
 <p class="text-gray-600 text-sm">
+<span data-lang="en">
 We discuss your project requirements, goals, and technical needs.
+</span>
+
+<span data-lang="de" class="hidden">
+Wir besprechen Ihre Projektanforderungen, Ziele und technischen Bedürfnisse.
+</span>
 </p>
 
 </div>
@@ -302,11 +417,18 @@ We discuss your project requirements, goals, and technical needs.
 </div>
 
 <h3 class="font-semibold mb-2">
-Planning
+<span data-lang="en">Planning</span>
+<span data-lang="de" class="hidden">Planung</span>
 </h3>
 
 <p class="text-gray-600 text-sm">
+<span data-lang="en">
 We define the architecture, timeline, and team structure for your project.
+</span>
+
+<span data-lang="de" class="hidden">
+Wir definieren die Architektur, den Zeitplan und die Teamstruktur für Ihr Projekt.
+</span>
 </p>
 
 </div>
@@ -321,11 +443,18 @@ We define the architecture, timeline, and team structure for your project.
 </div>
 
 <h3 class="font-semibold mb-2">
-Development
+<span data-lang="en">Development</span>
+<span data-lang="de" class="hidden">Entwicklung</span>
 </h3>
 
 <p class="text-gray-600 text-sm">
-Our offshore development team builds your product with continuous updates and quality checks.
+<span data-lang="en">
+Our development team builds your product with continuous updates and quality checks.
+</span>
+
+<span data-lang="de" class="hidden">
+Unser Entwicklungsteam erstellt Ihr Produkt mit kontinuierlichen Updates und Qualitätskontrollen.
+</span>
 </p>
 
 </div>
@@ -340,11 +469,18 @@ Our offshore development team builds your product with continuous updates and qu
 </div>
 
 <h3 class="font-semibold mb-2">
-Delivery
+<span data-lang="en">Delivery</span>
+<span data-lang="de" class="hidden">Lieferung</span>
 </h3>
 
 <p class="text-gray-600 text-sm">
+<span data-lang="en">
 We deliver a production-ready solution and provide ongoing support if needed.
+</span>
+
+<span data-lang="de" class="hidden">
+Wir liefern eine produktionsreife Lösung und bieten bei Bedarf laufenden Support.
+</span>
 </p>
 
 </div>
@@ -362,17 +498,25 @@ We deliver a production-ready solution and provide ongoing support if needed.
 <section id="contact" class="py-24 text-center">
 
 <h2 class="text-3xl md:text-4xl font-bold mb-6">
-Start Your Project
+<span data-lang="en">Start Your Project</span>
+<span data-lang="de" class="hidden">Starten Sie Ihr Projekt</span>
 </h2>
 
 <p class="text-gray-600 mb-8">
+<span data-lang="en">
 Tell us about your idea and we'll get back to you.
+</span>
+
+<span data-lang="de" class="hidden">
+Erzählen Sie uns von Ihrer Idee und wir melden uns bei Ihnen.
+</span>
 </p>
 
 <a href="mailto:omar@shokeir.com"
 class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
 
-Contact Us
+<span data-lang="en">Contact Us</span>
+<span data-lang="de" class="hidden">Kontakt aufnehmen</span>
 
 </a>
 
@@ -420,8 +564,13 @@ Shokeir
 </h3>
 
 <p class="text-gray-400">
-IT Project Management & Offshore Development Teams connecting companies with high-quality engineering talent.
-</p>
+<span data-lang="en">
+IT Project Management & Development Teams connecting companies with high-quality engineering talent.
+</span>
+
+<span data-lang="de" class="hidden">
+IT-Projektmanagement und Entwicklungsteams, die Unternehmen mit hochqualifizierten Softwareentwicklern verbinden.
+</span></p>
 
 </div>
 
@@ -431,7 +580,8 @@ IT Project Management & Offshore Development Teams connecting companies with hig
 <div>
 
 <h4 class="text-white font-semibold mb-4">
-Contact
+<span data-lang="en">Contact</span>
+<span data-lang="de" class="hidden">Kontakt</span>
 </h4>
 
 <ul class="space-y-3">
@@ -468,11 +618,25 @@ LinkedIn
 <div class="border-t border-gray-800 mt-10 pt-6 text-sm text-gray-500 flex flex-col md:flex-row justify-between">
 
 <p>
+<span data-lang="en">
 © 2026 Shokeir. All rights reserved.
+</span>
+
+<span data-lang="de" class="hidden">
+© 2026 Shokeir. Alle Rechte vorbehalten.
+</span>
 </p>
 
 <p>
-Based in Germany 🇩🇪
+<span data-lang="en" class="flex items-center gap-2">
+Based in Germany
+<img src="https://flagcdn.com/w20/de.png" class="w-5 h-4">
+</span>
+
+<span data-lang="de" class="hidden flex items-center gap-2">
+Sitz in Deutschland
+<img src="https://flagcdn.com/w20/de.png" class="w-5 h-4">
+</span>
 </p>
 
 </div>
@@ -481,8 +645,81 @@ Based in Germany 🇩🇪
 
 </footer>
 
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+let current = "en";
+
+const button = document.getElementById("langButton");
+const menu = document.getElementById("langMenu");
+
+const currentLang = document.getElementById("currentLang");
+const currentFlag = document.getElementById("currentFlag");
+
+const switchText = document.getElementById("switchText");
+const switchFlag = document.getElementById("switchFlag");
+const switchBtn = document.getElementById("switchLang");
+
+button.addEventListener("click", () => {
+menu.classList.toggle("hidden");
+});
+
+switchBtn.addEventListener("click", () => {
+
+current = current === "en" ? "de" : "en";
+
+const content = document.getElementById("pageContent");
+
+/* fade out */
+content.classList.add("lang-hidden");
+
+setTimeout(() => {
+
+document.querySelectorAll("[data-lang]").forEach(el => {
+
+if(el.getAttribute("data-lang") === current){
+el.classList.remove("hidden");
+}else{
+el.classList.add("hidden");
+}
+
+});
+
+/* fade back in */
+content.classList.remove("lang-hidden");
+
+}, 200);
+
+if(current === "de"){
+
+currentLang.textContent = "DE";
+currentFlag.src = "https://flagcdn.com/w20/de.png";
+
+switchText.textContent = "EN";
+switchFlag.src = "https://flagcdn.com/w20/gb.png";
+
+}
+
+else{
+
+currentLang.textContent = "EN";
+currentFlag.src = "https://flagcdn.com/w20/gb.png";
+
+switchText.textContent = "DE";
+switchFlag.src = "https://flagcdn.com/w20/de.png";
+
+}
+
+menu.classList.add("hidden");
+
+});
+
+});
+
+</script>
+
 </body>
 
 </html>
-
-
