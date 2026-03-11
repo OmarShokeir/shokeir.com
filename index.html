@@ -652,6 +652,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let current = "en";
 
+// Detect browser language
+const userLang = navigator.language || navigator.userLanguage;
+
+if(userLang && userLang.toLowerCase().startsWith("de")){
+  current = "de";
+}
+
 const button = document.getElementById("langButton");
 const menu = document.getElementById("langMenu");
 
