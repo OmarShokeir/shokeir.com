@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Download App</title>
+</head>
+<body>
+
+<script>
+const isAndroid = /Android/i.test(navigator.userAgent);
+const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+if (isAndroid) {
+    window.location.href =
+      "https://play.google.com/store/apps/details?id=com.yourapp";
+}
+else if (isIOS) {
+    window.location.href =
+      "https://apps.apple.com/app/id123456789";
+}
+else {
+    window.location.href =
+      "/download-options";
+}
+</script>
+
+</body>
+</html>
