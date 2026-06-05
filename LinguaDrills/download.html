@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Download App</title>
+  <meta charset="UTF-8">
+  <title>Download LingaPlus</title>
+
+  <script>
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isAndroid) {
+      window.location.replace(
+        "https://play.google.com/store/apps/details?id=com.omarshokeir.lingaplus"
+      );
+    } else if (isIOS) {
+      window.location.replace(
+        "https://apps.apple.com/us/app/15-min-german/id6761824657"
+      );
+    }
+  </script>
 </head>
+
 <body>
+  <h1>Download LingaPlus</h1>
 
-<script>
-const isAndroid = /Android/i.test(navigator.userAgent);
-const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  <p>If you are not redirected automatically:</p>
 
-if (isAndroid) {
-    window.location.href =
-      "https://play.google.com/store/apps/details?id=com.yourapp";
-}
-else if (isIOS) {
-    window.location.href =
-      "https://apps.apple.com/app/id123456789";
-}
-else {
-    window.location.href =
-      "/download-options";
-}
-</script>
+  <p>
+    <a href="https://apps.apple.com/us/app/15-min-german/id6761824657">
+      Download on App Store
+    </a>
+  </p>
 
+  <p>
+    <a href="https://play.google.com/store/apps/details?id=com.omarshokeir.lingaplus">
+      Get it on Google Play
+    </a>
+  </p>
 </body>
 </html>
